@@ -1,18 +1,52 @@
-// 1. DOM Element Selectors
+// ==========================================================================
+// 1. Background Image Slideshow Controller
+// ==========================================================================
+const backgroundImages = [
+    // 1. Existing Storm Image
+    'https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=2000&auto=format&fit=crop',
+    // 2. Vibrant Sunny Landscape
+    'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?q=80&w=2000&auto=format&fit=crop',
+    // 3. Atmospheric Rain Landscape
+    'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=2000&auto=format&fit=crop'
+];
+
+let currentImageIndex = 0;
+
+function startBackgroundSlideshow() {
+    const bgOverlay = document.querySelector('.bg-overlay');
+    if (!bgOverlay) return;
+
+    // Set the initial image immediately
+    bgOverlay.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('${backgroundImages[currentImageIndex]}')`;
+
+    // Rotate images automatically every 7 seconds
+    setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        bgOverlay.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('${backgroundImages[currentImageIndex]}')`;
+    }, 7000);
+}
+
+// Initialize the slideshow as soon as the DOM loads
+document.addEventListener('DOMContentLoaded', startBackgroundSlideshow);
+
+
+// ==========================================================================
+// 2. DOM Element Selectors & Event Listeners
+// ==========================================================================
 const cityInput = document.getElementById('cityInput');
 const loadBtn = document.getElementById('loadBtn');
 const weatherDisplay = document.getElementById('weatherDisplay');
 const errorMsg = document.getElementById('errorMsg');
 
-// 2. Event Listeners
 loadBtn.addEventListener('click', fetchWeather);
 cityInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') fetchWeather();
 });
 
-/**
- * Main Weather Fetching Controller
- */
+
+// ==========================================================================
+// 3. Main Weather Fetching Controller
+// ==========================================================================
 async function fetchWeather() {
     const cityValue = cityInput.value.trim();
 
@@ -47,7 +81,6 @@ async function fetchWeather() {
         const countryName = result.country || '';
         const regionName = result.admin1 || '';
         
-        // Build a beautiful location label (e.g., "Tamale, Northern Region" or "Kumasi, Ashanti")
         const locationString = regionName ? `${cityName}, ${regionName}` : `${cityName}, ${countryName}`;
 
         // Step 2: Weather API - Fetch current conditions using retrieved coordinates
@@ -58,7 +91,6 @@ async function fetchWeather() {
 
         const weatherData = await weatherResponse.json();
         
-        // Double check that current data exists
         if (!weatherData.current) {
             throw new Error('Could not read current weather data.');
         }
@@ -70,23 +102,21 @@ async function fetchWeather() {
         showError(error.message);
         resetWelcomeState();
     } finally {
-        // Reset button state
         loadBtn.disabled = false;
     }
 }
 
-/**
- * Dynamic HTML Renderer
- */
+
+// ==========================================================================
+// 4. Dynamic HTML Renderer
+// ==========================================================================
 function renderWeatherCard(current, locationString) {
     const temperature = Math.round(current.temperature_2m);
     const humidity = current.relative_humidity_2m;
     const windSpeed = current.wind_speed_10m;
     
-    // Get corresponding description text and Font Awesome icon
     const weatherInfo = interpretWeatherCode(current.weather_code);
 
-    // Completely updates the inside of the <main id="weatherDisplay"> container
     weatherDisplay.innerHTML = `
         <div class="current-weather">
             <h2 class="location">${locationString}</h2>
@@ -110,9 +140,10 @@ function renderWeatherCard(current, locationString) {
     `;
 }
 
-/**
- * Translates WMO Weather Codes to Descriptions and Icons
- */
+
+// ==========================================================================
+// 5. Translates WMO Weather Codes to Descriptions and Icons
+// ==========================================================================
 function interpretWeatherCode(code) {
     if (code === 0) return { description: 'Clear sky', icon: 'fa-sun' };
     if (code >= 1 && code <= 3) return { description: 'Partly cloudy', icon: 'fa-cloud-sun' };
@@ -125,9 +156,10 @@ function interpretWeatherCode(code) {
     return { description: 'Cloudy', icon: 'fa-cloud' };
 }
 
-/**
- * Error UI Handlers
- */
+
+// ==========================================================================
+// 6. UI Notification State Handlers
+// ==========================================================================
 function showError(message) {
     const textSpan = errorMsg.querySelector('.error-text');
     if (textSpan) {
