@@ -1,0 +1,228 @@
+/* Universal Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #2c3e50;
+}
+
+/* Component 1: Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #004d40;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4db6ac;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #4db6ac;
+}
+
+/* Component 2: Hero Section styling */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 50px;
+    background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+    color: white;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #e0f2f1;
+}
+
+.cta-btn {
+    background-color: #00bfc4;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+
+.cta-btn:hover {
+    background-color: #0097a7;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Container limits */
+.main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Component 3: SDG Form Assistant styling */
+.helper-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.helper-box h2 { margin-bottom: 10px; font-size: 28px;}
+.subtitle { color: #666; margin-bottom: 25px; font-size: 15px; }
+
+#sdg-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#sdg-prompt {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#sdg-prompt:focus { border-color: #00796b; }
+
+#sdg-form button {
+    padding: 15px 30px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#sdg-form button:hover { background-color: #004d40; }
+
+/* Response Box Layout */
+.response-card {
+    background-color: #e0f2f1;
+    border-left: 5px solid #00796b;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 25px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.response-header { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.response-header h3 { color: #004d40; font-size: 18px; }
+#ai-text { line-height: 1.6; font-size: 16px; color: #004d40; }
+.hidden { display: none; }
+
+/* Component 4: Contact Us Form styling */
+.contact-section {
+    background: #fff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.contact-section h2 { margin-bottom: 10px; font-size: 26px; text-align: center;}
+.contact-section p { margin-bottom: 25px; text-align: center; color: #666;}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.form-group input, .form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #00796b;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover { background-color: #002d26; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
