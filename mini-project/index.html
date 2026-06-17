@@ -5,62 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDG AI Helper Hub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Component 1: Navbar -->
     <nav class="navbar">
-        <div class="logo">🌿 SDGs.Finder</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#helper">SDG Finder</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+    <div class="logo"><i class="fa-solid fa-globe"></i> <span class="text-brand-yellow">SDGs.Finder</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="https://sdgs.un.org/goals" target="_blank">Resources</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+</nav>
 
-    <!-- Component 2: Hero Section with Picture -->
     <header class="hero-section" id="home">
         <div class="hero-content">
-            <h1>17 Goals. One Future. Your Action Matters.</h1>
+            <h1>
+            <span class="hero-title-large">Know the SDGs.</span><span class="hero-title-sub"> Take action for a sustainable future.</span>
+        </h1>
             <p>Discover the 17 Sustainable Development Goals (SDGs) and find out how you can contribute to a better, more sustainable future by 2030.</p>
             <a href="#helper" class="cta-btn">Start Exploring</a>
         </div>
         <div class="hero-image">
-            <!-- Utilizing a high-quality global sustainability placeholder image -->
             <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=600" alt="Sustainability and Nature Graphic">
         </div>
     </header>
 
     <main class="main-container">
-        <!-- Component 3: SDG AI Finder Form & Response Box -->
         <section class="helper-box" id="helper">
             <h2>🤖 SDG Smart Assistant</h2>
-            <p class="subtitle">Ask a question or type a keyword (like "poverty", "water", or "climate") to instantly get SDG insights.</p>
+            <p class="subtitle">Ask a question or type a keyword (like "goal 1", "poverty", or "water") to instantly get SDG insights and action steps.</p>
             
-            <form id="sdg-form">
+            <form id="sdg-form" class="search-form-group">
                 <input 
-                    type="text" 
                     id="sdg-prompt" 
                     placeholder="e.g., Which goal focuses on clean oceans?..." 
                     required
                 >
-                <button type="submit">Ask Helper</button>
+                <button type="submit" id="ask-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i> Ask Us
+                </button>
             </form>
 
-            <!-- Dynamic AI Response Area -->
             <div id="ai-response-card" class="response-card hidden">
                 <div class="response-header">
                     <span class="bot-icon">🧠</span>
-                    <h3>AI Insight Result:</h3>
+                    <h3>Result:</h3>
                 </div>
                 <p id="ai-text"></p>
             </div>
         </section>
 
-        <!-- Component 4: Contact Us Form -->
         <section class="contact-section" id="contact">
             <h2>Get More Information</h2>
-            <p>Want to partner up, ask detailed questions, or request SDG datasets? Leave us a message!</p>
+            <p>Want to partner with us, ask detailed questions, or support sustainable change initiatives? Leave us a message!</p>
             
             <form id="contact-form">
                 <div class="form-group">

@@ -10,6 +10,12 @@
 body {
     background-color: #f4f7f6;
     color: #2c3e50;
+    overflow-x: hidden; /* Prevents any accidental horizontal side-scrolling on mobile */
+}
+
+/* Variables & Global Brand Accents */
+:root {
+    --sdg-yellow-brand: #fbc02d; 
 }
 
 /* Component 1: Navbar styling */
@@ -29,6 +35,15 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #4db6ac;
+}
+
+.text-brand-yellow {
+    color: var(--sdg-yellow-brand) !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar .logo:hover .text-brand-yellow {
+    color: #ffeb3b !important;
 }
 
 .nav-links {
@@ -64,10 +79,27 @@ body {
     max-width: 600px;
 }
 
+/* Restructured Main Typography Hierarchy */
 .hero-content h1 {
-    font-size: 42px;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+/* Primary prominent phrase (Set to inline for same-line arrangement) */
+.hero-title-large {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    display: inline;
+}
+
+/* Secondary supportive sub-phrase (Set to inline with horizontal spacing) */
+.hero-title-sub {
+    font-size: 21px;
+    font-weight: 600;
+    color: #e0f2f1;
+    display: inline;
+    margin-left: 8px;
 }
 
 .hero-content p {
@@ -78,6 +110,7 @@ body {
 }
 
 .cta-btn {
+    display: inline-block; /* Fixed: Prevents background clipping on wrap text */
     background-color: #00bfc4;
     color: white;
     text-decoration: none;
@@ -86,7 +119,8 @@ body {
     font-weight: bold;
     font-size: 16px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
+    text-align: center;
 }
 
 .cta-btn:hover {
@@ -129,6 +163,7 @@ body {
     display: flex;
     gap: 12px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 #sdg-prompt {
@@ -139,6 +174,7 @@ body {
     font-size: 16px;
     outline: none;
     transition: border-color 0.2s;
+    min-width: 0; /* Fixed: Prevents flex inputs from popping out box sizes */
 }
 
 #sdg-prompt:focus { border-color: #00796b; }
@@ -152,6 +188,8 @@ body {
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
+    white-space: nowrap; /* Fixed: Prevents 'Ask Help' text from wrapping awkwardly */
+    transition: background 0.2s;
 }
 
 #sdg-form button:hover { background-color: #004d40; }
@@ -171,6 +209,30 @@ body {
 .response-header h3 { color: #004d40; font-size: 18px; }
 #ai-text { line-height: 1.6; font-size: 16px; color: #004d40; }
 .hidden { display: none; }
+
+/* Integrated Action Box Typography Updates */
+.response-main-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #004d40;
+}
+
+.action-box {
+    background-color: #ffffff;
+    border-left: 4px solid var(--sdg-yellow-brand); /* Uses your root brand yellow */
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #2c3e50;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    margin-top: 10px;
+}
+
+.action-box strong {
+    color: #00796b;
+}
 
 /* Component 4: Contact Us Form styling */
 .contact-section {
@@ -225,4 +287,79 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints (Fixes Mobile Layout Crashing)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    /* Scaling inline typography down on mobile systems cleanly to protect line flows */
+    .hero-title-large {
+        font-size: 26px;
+    }
+
+    .hero-title-sub {
+        font-size: 18px;
+        margin-left: 4px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        width: 100%; /* Spans full horizontal container on small screens */
+        padding: 14px 20px;
+    }
+
+    .hero-image img {
+        max-width: 90%;
+    }
+
+    /* Stacks search bar on mobile screens to prevent layout breaking */
+    #sdg-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #sdg-prompt {
+        width: 100%;
+    }
+
+    #sdg-form button {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 10px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .helper-box, .contact-section {
+        padding: 20px 15px;
+    }
 }
