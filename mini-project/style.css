@@ -1,4 +1,6 @@
-/* Universal Setup */
+/* ==========================================================================
+   1. Universal Setup & Global Accent Variables
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,15 +12,16 @@
 body {
     background-color: #f4f7f6;
     color: #2c3e50;
-    overflow-x: hidden; /* Prevents any accidental horizontal side-scrolling on mobile */
+    overflow-x: hidden;
 }
 
-/* Variables & Global Brand Accents */
 :root {
     --sdg-yellow-brand: #fbc02d; 
 }
 
-/* Component 1: Navbar styling */
+/* ==========================================================================
+   2. Component 1: Navbar Styling
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -34,7 +37,7 @@ body {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #4db6ac;
+    color: #fff;
 }
 
 .text-brand-yellow {
@@ -63,7 +66,9 @@ body {
     color: #4db6ac;
 }
 
-/* Component 2: Hero Section styling */
+/* ==========================================================================
+   3. Component 2: Hero Section Styling
+   ========================================================================== */
 .hero-section {
     display: flex;
     align-items: center;
@@ -76,27 +81,24 @@ body {
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 650px;
 }
 
-/* Restructured Main Typography Hierarchy */
 .hero-content h1 {
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 25px;
 }
 
-/* Primary prominent phrase (Set to inline for same-line arrangement) */
 .hero-title-large {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 800;
     color: #ffffff;
     display: inline;
 }
 
-/* Secondary supportive sub-phrase (Set to inline with horizontal spacing) */
 .hero-title-sub {
-    font-size: 21px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 400;
     color: #e0f2f1;
     display: inline;
     margin-left: 8px;
@@ -110,7 +112,7 @@ body {
 }
 
 .cta-btn {
-    display: inline-block; /* Fixed: Prevents background clipping on wrap text */
+    display: inline-block;
     background-color: #00bfc4;
     color: white;
     text-decoration: none;
@@ -139,14 +141,15 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Container limits */
 .main-container {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Component 3: SDG Form Assistant styling */
+/* ==========================================================================
+   4. Component 3: SDG Assistant Form Section
+   ========================================================================== */
 .helper-box {
     background: #fff;
     padding: 35px;
@@ -156,45 +159,122 @@ body {
     text-align: center;
 }
 
-.helper-box h2 { margin-bottom: 10px; font-size: 28px;}
-.subtitle { color: #666; margin-bottom: 25px; font-size: 15px; }
+.helper-box h2 { 
+    margin-bottom: 10px; 
+    font-size: 28px;
+    color: #004d40;
+}
+
+.subtitle { 
+    color: #666; 
+    margin-bottom: 15px; 
+    font-size: 15px; 
+}
 
 #sdg-form {
     display: flex;
+    flex-direction: column;
     gap: 12px;
     margin-bottom: 20px;
     width: 100%;
 }
 
 #sdg-prompt {
-    flex: 1;
+    width: 100%;
     padding: 15px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 16px;
     outline: none;
     transition: border-color 0.2s;
-    min-width: 0; /* Fixed: Prevents flex inputs from popping out box sizes */
 }
 
-#sdg-prompt:focus { border-color: #00796b; }
+#sdg-prompt:focus { 
+    border-color: #00796b; 
+}
 
-#sdg-form button {
-    padding: 15px 30px;
-    background-color: #00796b;
-    color: white;
-    border: none;
-    border-radius: 8px;
+.assistant-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+#sdg-form button, .voice-btn {
+    flex: 1;
+    padding: 15px 20px;
     font-weight: bold;
     font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     cursor: pointer;
-    white-space: nowrap; /* Fixed: Prevents 'Ask Help' text from wrapping awkwardly */
-    transition: background 0.2s;
 }
 
-#sdg-form button:hover { background-color: #004d40; }
+#sdg-form button {
+    background-color: #00796b;
+    color: white;
+    border: 2px solid #00796b;
+}
 
-/* Response Box Layout */
+#sdg-form button:hover { 
+    background-color: #004d40; 
+    border-color: #004d40;
+}
+
+.voice-btn {
+    background-color: #34495e;
+    color: white;
+    border: 2px solid #34495e;
+}
+
+.voice-btn:hover {
+    background-color: var(--sdg-yellow-brand);
+    border-color: var(--sdg-yellow-brand);
+    color: #2c3e50;
+}
+
+/* ==========================================================================
+   5. Fixed: Notice Highlights (Makes Sentences Noticeable)
+   ========================================================================== */
+.highlight-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.highlight-note i {
+    font-size: 18px;
+}
+
+/* Custom background styles to fit layout context */
+.bg-blue {
+    background-color: #e8f4fd;
+    color: #1d88e5;
+    border-left: 4px solid #1d88e5;
+}
+
+.bg-teal {
+    background-color: #e0f2f1;
+    color: #00796b;
+    border-left: 4px solid #00796b;
+}
+
+/* ==========================================================================
+   6. Dynamic Response Elements
+   ========================================================================== */
 .response-card {
     background-color: #e0f2f1;
     border-left: 5px solid #00796b;
@@ -205,36 +285,31 @@ body {
     animation: fadeIn 0.4s ease-out;
 }
 
-.response-header { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
-.response-header h3 { color: #004d40; font-size: 18px; }
-#ai-text { line-height: 1.6; font-size: 16px; color: #004d40; }
-.hidden { display: none; }
-
-/* Integrated Action Box Typography Updates */
-.response-main-text {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #004d40;
+.response-header { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center; 
+    margin-bottom: 8px; 
 }
 
-.action-box {
-    background-color: #ffffff;
-    border-left: 4px solid var(--sdg-yellow-brand); /* Uses your root brand yellow */
-    padding: 12px 15px;
-    border-radius: 4px;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #2c3e50;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    margin-top: 10px;
+.response-header h3 { 
+    color: #004d40; 
+    font-size: 18px; 
 }
 
-.action-box strong {
-    color: #00796b;
+#ai-text { 
+    line-height: 1.6; 
+    font-size: 16px; 
+    color: #004d40; 
 }
 
-/* Component 4: Contact Us Form styling */
+.hidden { 
+    display: none; 
+}
+
+/* ==========================================================================
+   7. Component 4: Contact Us Form Section
+   ========================================================================== */
 .contact-section {
     background: #fff;
     padding: 35px;
@@ -242,47 +317,95 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.contact-section h2 { margin-bottom: 10px; font-size: 26px; text-align: center;}
-.contact-section p { margin-bottom: 25px; text-align: center; color: #666;}
+.contact-section h2 { 
+    margin-bottom: 10px; 
+    font-size: 26px; 
+    text-align: center;
+    color: #004d40;
+}
+
+.form-description { 
+    margin-bottom: 10px; 
+    text-align: center; 
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
 
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+    width: 100%;
     text-align: left;
 }
 
 .form-group label {
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-size: 14px;
+    color: #2c3e50;
 }
 
 .form-group input, .form-group textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    width: 100%; 
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
     font-size: 15px;
     outline: none;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
 }
 
 .form-group input:focus, .form-group textarea:focus {
     border-color: #00796b;
+    background-color: #ffffff;
 }
 
-.submit-btn {
+.contact-actions {
+    display: flex;
+    gap: 12px;
     width: 100%;
-    padding: 14px;
-    background-color: #004d40;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.submit-btn, .whatsapp-btn {
+    flex: 1;
+    padding: 15px;
     font-size: 16px;
     font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: background-color 0.2s, transform 0.1s;
     cursor: pointer;
 }
 
-.submit-btn:hover { background-color: #002d26; }
+.submit-btn {
+    background-color: #004d40;
+    color: white;
+    border: none;
+}
+
+.submit-btn:hover { 
+    background-color: #002d26; 
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    border: none;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128c7e;
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -290,9 +413,8 @@ body {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints (Fixes Mobile Layout Crashing)
+   8. Responsive Mobile Media Queries
    ========================================================================== */
-
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
@@ -309,14 +431,15 @@ body {
         max-width: 100%;
     }
 
-    /* Scaling inline typography down on mobile systems cleanly to protect line flows */
     .hero-title-large {
-        font-size: 26px;
+        font-size: 32px;
+        display: block;
     }
 
     .hero-title-sub {
-        font-size: 18px;
-        margin-left: 4px;
+        font-size: 20px;
+        margin-left: 0;
+        display: block;
     }
 
     .hero-content p {
@@ -324,27 +447,22 @@ body {
     }
 
     .cta-btn {
-        width: 100%; /* Spans full horizontal container on small screens */
-        padding: 14px 20px;
+        width: 100%;
     }
 
     .hero-image img {
-        max-width: 90%;
+        max-width: 100%;
     }
 
-    /* Stacks search bar on mobile screens to prevent layout breaking */
-    #sdg-form {
+    .highlight-note {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .assistant-actions, .contact-actions {
         flex-direction: column;
         gap: 10px;
-    }
-
-    #sdg-prompt {
-        width: 100%;
-    }
-
-    #sdg-form button {
-        width: 100%;
-        padding: 14px;
     }
 }
 
@@ -360,6 +478,16 @@ body {
     }
 
     .helper-box, .contact-section {
-        padding: 20px 15px;
+        padding: 25px 15px;
+    }
+}
+
+/* Desktop System Layout Balancing */
+@media (min-width: 769px) {
+    #sdg-form {
+        flex-direction: row;
+    }
+    .assistant-actions {
+        width: auto;
     }
 }

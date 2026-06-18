@@ -58,7 +58,7 @@ const sdgDatabase = [
     { 
         keywords: ["consumption", "production", "waste", "recycle", "responsible", "goal 12"], 
         response: "🔄 SDG Goal 12: Responsible Consumption and Production. Ensure sustainable consumption and production patterns, reducing global food waste and chemical management hazards.",
-        action: "Practice the 5 R's: Refuse single-use plastics, reduce what you buy, reuse containers, repurpose old items, and recycle correctly according to local guidelines."
+        action: "Practice the 5 R's: Refuse single-use plastics, reduce your purchase of non-recyclable products and choose items with minimal packaging, reuse containers, repurpose old items, and recycle correctly according to local guidelines."
     },
     { 
         keywords: ["climate", "warming", "carbon", "emissions", "weather", "goal 13"], 
