@@ -162,36 +162,16 @@ body {
     scroll-margin-top: 100px; 
 }
 
-/* Integrated Header Layout with SDG Wheel Logo Alignment */
-.assistant-heading-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 12px;
-    width: 100%;
-}
-
-.sdg-wheel-logo {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
 .helper-box h2 { 
-    margin: 0;
-    font-size: 28px;
+    margin-bottom: 10px; 
+    font-size: 26px;
     color: #004d40;
-    font-weight: 700;
-    line-height: 1.2;
 }
 
 .subtitle { 
     color: #666; 
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
     font-size: 15px; 
-    line-height: 1.5;
 }
 
 #sdg-form {
@@ -325,6 +305,22 @@ body {
     color: #004d40; 
 }
 
+.response-main-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.action-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid #004d40;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 10px;
+    color: #2c3e50;
+}
+
 /* Global Functional Utility Class */
 .hidden { 
     display: none !important; 
@@ -356,7 +352,7 @@ body {
     line-height: 1.5;
 }
 
-/* Clean Form Interactive Button Row Wrapper */
+/* Unified Button Cluster Wrapper */
 .contact-actions {
     display: flex;
     gap: 16px;
@@ -366,7 +362,7 @@ body {
     align-items: center;
 }
 
-/* Standardized button blueprints to keep matching visual scales */
+/* Shared button class to equalize <a> links and <button> inputs */
 .submit-btn, .whatsapp-btn {
     flex: 1;
     max-width: 280px; 
@@ -409,7 +405,7 @@ body {
     border-color: #128c7e;
 }
 
-/* Sub-Form Container Layout Structure Box Modifiers */
+/* Sub-Form Structural Context Blocks */
 .form-fields-wrapper {
     margin-top: 25px;
     padding-top: 25px;
@@ -440,7 +436,7 @@ body {
     display: block;
 }
 
-/* Normalizes dimensions on fields inside responsive wrappers */
+/* Force elements to behave within boundaries */
 .form-group input, 
 .form-group textarea {
     width: 100% !important; 
@@ -476,29 +472,77 @@ body {
    8. Responsive Mobile Media Queries
    ========================================================================== */
 @media (max-width: 768px) {
-    .navbar { padding: 15px 20px; }
+    .navbar {
+        padding: 15px 20px;
+    }
+
     .hero-section {
         flex-direction: column;
         padding: 40px 20px;
         text-align: center;
         gap: 30px;
     }
-    .hero-content { max-width: 100%; }
-    .hero-title-large { font-size: 32px; display: block; }
-    .hero-title-sub { font-size: 20px; margin-left: 0; display: block; }
-    .hero-content p { font-size: 16px; }
-    .cta-btn { width: 100%; }
-    .highlight-note { flex-direction: column; text-align: center; padding: 15px; }
-    .assistant-actions, .contact-actions { flex-direction: column; gap: 10px; }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-title-large {
+        font-size: 32px;
+        display: block;
+    }
+
+    .hero-title-sub {
+        font-size: 20px;
+        margin-left: 0;
+        display: block;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .highlight-note {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .assistant-actions, .contact-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 @media (max-width: 480px) {
-    .navbar { flex-direction: column; gap: 10px; padding: 15px 10px; }
-    .nav-links { gap: 15px; }
-    .helper-box, .contact-section { padding: 25px 15px; }
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 10px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .helper-box, .contact-section {
+        padding: 25px 15px;
+    }
 }
 
 @media (min-width: 769px) {
-    #sdg-form { flex-direction: row; }
-    .assistant-actions { width: auto; }
+    #sdg-form {
+        flex-direction: row;
+    }
+    .assistant-actions {
+        width: auto;
+    }
 }
