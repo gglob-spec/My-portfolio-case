@@ -159,7 +159,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     margin-bottom: 50px;
     text-align: center;
-    scroll-margin-top: 90px; 
+    scroll-margin-top: 100px; 
 }
 
 .helper-box h2 { 
@@ -177,7 +177,7 @@ body {
 #sdg-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 20px;
     width: 100%;
 }
@@ -305,6 +305,22 @@ body {
     color: #004d40; 
 }
 
+.response-main-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.action-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid #004d40;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 10px;
+    color: #2c3e50;
+}
+
 /* Global Functional Utility Class */
 .hidden { 
     display: none !important; 
@@ -318,7 +334,7 @@ body {
     padding: 35px;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    scroll-margin-top: 90px;
+    scroll-margin-top: 100px;
 }
 
 .contact-section h2 { 
@@ -329,25 +345,29 @@ body {
 }
 
 .form-description { 
-    margin-bottom: 10px; 
+    margin-bottom: 20px; 
     text-align: center; 
     color: #666;
     font-size: 15px;
     line-height: 1.5;
 }
 
-/* Form Action Button Grid Wrapper */
+/* Unified Button Cluster Wrapper */
 .contact-actions {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Shared button class to equalize <a> links and <button> inputs */
 .submit-btn, .whatsapp-btn {
     flex: 1;
-    padding: 15px;
+    max-width: 280px; 
+    height: 50px;     
+    padding: 0 20px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
@@ -358,41 +378,51 @@ body {
     justify-content: center;
     gap: 8px;
     white-space: nowrap;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
     cursor: pointer;
+    box-sizing: border-box; 
 }
 
 .submit-btn {
     background-color: #004d40;
     color: white;
-    border: none;
+    border: 2px solid #004d40;
 }
 
 .submit-btn:hover { 
     background-color: #002d26; 
+    border-color: #002d26;
 }
 
 .whatsapp-btn {
     background-color: #25d366;
     color: white;
-    border: none;
+    border: 2px solid #25d366;
 }
 
 .whatsapp-btn:hover {
     background-color: #128c7e;
+    border-color: #128c7e;
 }
 
-/* Dynamic Hidden Input Sub-form Fields Wrapper */
+/* Sub-Form Structural Context Blocks */
 .form-fields-wrapper {
     margin-top: 25px;
-    padding-top: 15px;
+    padding-top: 25px;
     border-top: 1px dashed #e0e0e0;
     animation: fadeIn 0.4s ease-out;
+    width: 100%;
+    display: block; 
+}
+
+#contact-form {
+    width: 100%;
+    display: block;
 }
 
 .form-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     margin-bottom: 20px;
     width: 100%;
     text-align: left;
@@ -403,27 +433,34 @@ body {
     margin-bottom: 8px;
     font-size: 14px;
     color: #2c3e50;
+    display: block;
 }
 
-.form-group input, .form-group textarea {
-    width: 100%; 
+/* Force elements to behave within boundaries */
+.form-group input, 
+.form-group textarea {
+    width: 100% !important; 
+    max-width: 100%;
     padding: 14px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 15px;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background-color 0.2s;
     background-color: #fafafa;
+    box-sizing: border-box; 
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus, 
+.form-group textarea:focus {
     border-color: #00796b;
     background-color: #ffffff;
 }
 
 .final-send-btn {
-    width: 100%;
-    margin-top: 5px;
+    width: 100% !important;
+    max-width: 100%;
+    margin-top: 10px;
 }
 
 @keyframes fadeIn {
