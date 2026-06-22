@@ -32,6 +32,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    height: 70px; /* Explicit height tracking to sync with scroll margins */
 }
 
 .logo {
@@ -77,6 +78,7 @@ body {
     background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
     color: white;
     gap: 40px;
+    scroll-margin-top: 70px; /* Aligns home when jumped back to */
 }
 
 .hero-content {
@@ -90,17 +92,17 @@ body {
 }
 
 .hero-title-large {
-    font-size: 32px;
+    font-size: 31px;
     font-weight: 800;
     color: #ffffff;
-    display: inline;
+    display: inline-block;
 }
 
 .hero-title-sub {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 400;
     color: #e0f2f1;
-    display: inline;
+    display: inline-block;
     margin-left: 8px;
 }
 
@@ -148,7 +150,7 @@ body {
 }
 
 /* ==========================================================================
-   4. Component 3: SDG Assistant Form Section
+   4. Component 3: SDG Assistant Form Section (Fixed: Custom Scroll Margin)
    ========================================================================== */
 .helper-box {
     background: #fff;
@@ -157,6 +159,9 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     margin-bottom: 50px;
     text-align: center;
+    
+    /* Fixed: Adds safety margin offsets so navigation doesn't block headers */
+    scroll-margin-top: 90px; 
 }
 
 .helper-box h2 { 
@@ -240,7 +245,7 @@ body {
 }
 
 /* ==========================================================================
-   5. Fixed: Notice Highlights (Makes Sentences Noticeable)
+   5. Notice Highlights
    ========================================================================== */
 .highlight-note {
     display: flex;
@@ -259,7 +264,6 @@ body {
     font-size: 18px;
 }
 
-/* Custom background styles to fit layout context */
 .bg-blue {
     background-color: #e8f4fd;
     color: #1d88e5;
@@ -308,13 +312,16 @@ body {
 }
 
 /* ==========================================================================
-   7. Component 4: Contact Us Form Section
+   7. Component 4: Contact Us Form Section (Fixed: Custom Scroll Margin)
    ========================================================================== */
 .contact-section {
     background: #fff;
     padding: 35px;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    
+    /* Fixed: Prevents sticky header overlapping when jumping to form */
+    scroll-margin-top: 90px;
 }
 
 .contact-section h2 { 
