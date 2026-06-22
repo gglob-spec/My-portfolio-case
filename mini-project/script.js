@@ -87,7 +87,9 @@ const sdgDatabase = [
     }
 ];
 
+// ==========================================================================
 // 1. Handling the SDG Finder Form Submissions
+// ==========================================================================
 document.getElementById('sdg-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -131,14 +133,39 @@ document.getElementById('sdg-form').addEventListener('submit', function(e) {
     responseCard.classList.remove('hidden');
 });
 
-// 2. Handling the Contact Us Form
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+// ==========================================================================
+// 2. Interactive Contact Form Toggle & Submission Handler
+// ==========================================================================
+const toggleMessageBtn = document.getElementById('toggle-message-btn');
+const formFieldsWrapper = document.getElementById('form-fields');
+const contactForm = document.getElementById('contact-form');
+
+// Click listener to handle hiding/showing the form when "Leave a Message" is selected
+toggleMessageBtn.addEventListener('click', function() {
+    if (formFieldsWrapper.classList.contains('hidden')) {
+        // Reveal the nested form inputs
+        formFieldsWrapper.classList.remove('hidden');
+        // Update button UI to allow closing
+        toggleMessageBtn.innerHTML = `<i class="fa-solid fa-angle-up"></i> Close Form`;
+    } else {
+        // Hide the input cluster again
+        formFieldsWrapper.classList.add('hidden');
+        toggleMessageBtn.innerHTML = `<i class="fa-solid fa-envelope"></i> Leave a Message`;
+    }
+});
+
+// Form processing configuration
+contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     const name = document.getElementById('name').value;
     
     alert(`Thank you, ${name}! Your request for more information on the SDGs has been submitted. Our team will reach out via email shortly.`);
     
-    // Reset form fields
+    // Clear data from input elements
     this.reset();
+    
+    // Re-hide the input module section until requested again
+    formFieldsWrapper.classList.add('hidden');
+    toggleMessageBtn.innerHTML = `<i class="fa-solid fa-envelope"></i> Leave a Message`;
 });

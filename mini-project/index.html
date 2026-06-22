@@ -35,10 +35,10 @@
     <main class="main-container">
         <section class="helper-box" id="helper">
             <h2>🤖 SDG Smart Assistant</h2>
-            <p class="subtitle">Ask a question or type a keyword (like "goal 1" or "water") in the search box to instantly get SDG insights and action steps.</p>
+            <p class="subtitle">Type a keyword (like "poverty" or "goal 12") to search instantly.</p>
             
             <p class="highlight-note bg-blue">
-                <i class="fa-solid fa-circle-info"></i> Or use our automated voice assistant if you prefer to speak or have a weak internet connection.
+                <i class="fa-solid fa-circle-info"></i> Or use our offline voice hotline if you prefer to call or have a weak internet connection.
             </p>
             
             <form id="sdg-form">
@@ -52,7 +52,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i> Search
                     </button>
                     <a href="tel:+1234567890" class="voice-btn">
-                        <i class="fa-solid fa-phone"></i> Voice Agent
+                        <i class="fa-solid fa-phone"></i> Voice Hotline
                     </a>
                 </div>
             </form>
@@ -74,29 +74,35 @@
                 <i class="fa-solid fa-comments"></i> Leave us a message or chat with us directly!
             </p>
             
+            <div class="contact-actions">
+                <button type="button" id="toggle-message-btn" class="submit-btn">
+                    <i class="fa-solid fa-envelope"></i> Leave a Message
+                </button>
+                <a href="https://wa.me/243919417?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20the%20SDGs." target="_blank" class="whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+
             <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" placeholder="John Doe" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="johndoe@example.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" rows="4" placeholder="How can we help you understand the SDGs?..." required></textarea>
-                </div>
-                
-                <div class="contact-actions">
-                    <button type="submit" class="submit-btn">
-                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                <div class="form-fields-wrapper hidden" id="form-fields">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="johndoe@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="4" placeholder="How can we help you understand the SDGs?..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn final-send-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message Now
                     </button>
-                    <a href="https://wa.me/243919417?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20the%20SDGs." target="_blank" class="whatsapp-btn">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-                    </a>
                 </div>
             </form>
         </section>
