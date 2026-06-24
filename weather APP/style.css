@@ -42,7 +42,7 @@ body {
     border-radius: 24px;
     padding: 35px 20px;
     width: 100%;
-    max-width: 500px; /* Expanded space to fit all 4 parameters side-by-side */
+    max-width: 500px; /* Roomy floor scaling space to prevent data crushing */
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease;
 }
@@ -264,38 +264,43 @@ h1 {
     transform: scale(0.99);
 }
 
+/* Scrollable Container Window */
 .weekly-forecast-container {
     width: 100%;
     margin-top: 15px;
     max-height: 340px;
     overflow-y: auto;
+    overflow-x: auto; /* Handles desktop overflow and responsive mobile scrolling swipe bands */
     padding-right: 2px;
     border-top: 1px dashed rgba(0, 0, 0, 0.1);
-    position: relative; /* Established coordinate bounds context for sticky children */
+    position: relative; /* Set local context bounds coordinate space for sticky pinning */
 }
 
 .weekly-forecast-container::-webkit-scrollbar {
     width: 5px;
+    height: 5px; /* Size profile map rules for horizontal viewport scrollbars */
 }
 .weekly-forecast-container::-webkit-scrollbar-thumb {
     background: #bdc3c7;
     border-radius: 10px;
 }
 
+/* Flexible Grid Alignment Wrapper Block */
 .weekly-list-wrapper {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding-top: 0px; /* Set to 0 so the sticky header lines up clean at the absolute top edge */
+    padding-top: 0px; /* Aligns header to the container's top edge */
+    min-width: 440px; /* Enforces structural width floor layout so boxes never squash on small viewports */
     animation: fadeIn 0.35s ease forwards;
 }
 
-/* Sticky Column Header Banner - Remains locked in place during scroll */
+/* Sticky Column Header Banner - Anchors smoothly and scales full-width */
 .weekly-headers-banner {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: #fdfdfd; /* Solid background prevents text overlapping/bleeding behind */
+    background: #fdfdfd; /* Solid background prevents text bleed-through when scrolling */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -307,26 +312,30 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.3px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%; /* Spans the minimum layout bounds entirely */
 }
 
 .hdr-day {
     min-width: 55px;
     text-align: left;
+    flex-shrink: 0;
 }
 
 .hdr-cond {
     min-width: 40px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .hdr-metrics-group {
     display: flex;
     gap: 5px;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .hdr-lbl {
-    width: 66px; /* Explicit width matching row metric capsule boxes */
+    width: 66px; /* Width floor parameters matching data data capsules below */
     text-align: center;
     font-size: 0.62rem;
     line-height: 1.1;
@@ -338,7 +347,7 @@ h1 {
     margin-bottom: 2px;
 }
 
-/* Row Boxes Styling */
+/* Row Boxes Layout */
 .weekly-row {
     display: flex;
     align-items: center;
@@ -348,6 +357,7 @@ h1 {
     padding: 10px 8px;
     border-radius: 10px;
     gap: 4px;
+    width: 100%;
 }
 
 .weekly-date-box {
@@ -355,6 +365,7 @@ h1 {
     flex-direction: column;
     text-align: left;
     min-width: 55px;
+    flex-shrink: 0;
 }
 
 .weekly-day-title {
@@ -376,12 +387,14 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .weekly-metrics-col {
     display: flex;
     gap: 5px;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .weekly-metric-capsule {
@@ -393,6 +406,7 @@ h1 {
     font-weight: 700;
     display: inline-flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 /* High-contrast metrics color coding scheme classes */
@@ -422,4 +436,25 @@ h1 {
     margin-top: 15px;
     padding: 14px;
     background: rgba(231, 76, 60, 0.12);
-    border: 1px solid rgba(231, 7
+    border: 1px solid rgba(231, 76, 60, 0.25);
+    border-radius: 12px;
+    color: #c0392b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ==========================================================================
+   7. System Transition Keyframes
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
